@@ -4,15 +4,17 @@ Summary:	Module for accessing CDDB and FreeDB
 Summary(pl):	Modu³ do ³±czenia z bazami CDDB i FreeDB
 Name:		jack
 Version:	3.0.0
-Release:	0.3
+Release:	1
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
 # Source0-md5:	195c15a053c27f6a05fe0eda54bf9f35
 URL:		http://www.home.unix-ag.org/arne/jack/
+BuildRequires:	ncurses-devel
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
+Requires:	ncurses <= 5.3
 Requires:	python-CDDB
 Requires:	python-ID3
 Requires:	python-jack-cursesmodule = %{version}-%{release}
