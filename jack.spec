@@ -4,7 +4,7 @@ Summary:	Module for accessing CDDB and FreeDB
 Summary(pl):	Modu³ do ³±czenia z bazami CDDB i FreeDB
 Name:		jack
 Version:	3.0.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
@@ -13,11 +13,12 @@ URL:		http://www.home.unix-ag.org/arne/jack/
 BuildRequires:	ncurses-devel
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.174
 %pyrequires_eq	python-modules
 Requires:	ncurses
 Requires:	python-CDDB
 Requires:	python-ID3
-Requires:	python-jack-cursesmodule = %{version}-%{release}
+Requires:	python-jack-cursesmodule = %{epoch}:%{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -33,6 +34,7 @@ b³±d przy zgrywaniu umknie naszej uwadze.
 Summary:	An improved Python curses module used by jack (a Python ripping program)
 Summary(pl):	Ulepszona wersja modu³u curses dla Pythona wykorzystywana przez program jack
 Group:		Development/Languages/Python
+%pyrequires_eq	python-libs
 
 %description -n python-%{module}-cursesmodule
 Improved Python curses module used by jack (a Python ripping program).
