@@ -14,7 +14,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
-Requires:	ncurses <= 5.3
+Requires:	ncurses
 Requires:	python-CDDB
 Requires:	python-ID3
 Requires:	python-jack-cursesmodule = %{version}-%{release}
@@ -46,7 +46,7 @@ program do zgrywania p³yt Audio CD.
 
 %build
 CFLAGS="%{rpmcflags}"
-export CLFAGS
+export CFLAGS
 python setup-cursesmodule.py build
 
 python -O *.py
