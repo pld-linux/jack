@@ -4,7 +4,7 @@ Summary:	Module for accessing CDDB and FreeDB
 Summary(pl):	Modu³ do ³±czenia z bazami CDDB i FreeDB
 Name:		jack
 Version:	3.1.1
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
