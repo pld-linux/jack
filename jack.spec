@@ -3,12 +3,12 @@
 Summary:	Module for accessing CDDB and FreeDB
 Summary(pl):	Modu³ do ³±czenia z bazami CDDB i FreeDB
 Name:		jack
-Version:	3.0.0
-Release:	2
+Version:	3.1.0
+Release:	1
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
-# Source0-md5:	195c15a053c27f6a05fe0eda54bf9f35
+# Source0-md5:	d3bcd9fe1092827baf95ed2a5032ea54
 URL:		http://www.home.unix-ag.org/arne/jack/
 BuildRequires:	ncurses-devel
 BuildRequires:	python-devel >= 2.2
@@ -49,30 +49,20 @@ program do zgrywania p³yt Audio CD.
 %build
 CFLAGS="%{rpmcflags}"
 export CFLAGS
-python setup-cursesmodule.py build
+python setup.py build
 
-python -O *.py
-
-python - <<END
-import py_compile, os, fnmatch
-
-for f in os.listdir("."):
-  if fnmatch.fnmatch(f, "*.py"):
-    print "Byte compiling %s..." % f
-    py_compile.compile(f)
-END
+#py_comp *.py
+#py_ocomp *.py
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{py_sitedir}
-install -d $RPM_BUILD_ROOT%{py_sitescriptdir}
 install -d $RPM_BUILD_ROOT%{_bindir}
 
-python setup-cursesmodule.py install \
+python setup.py install \
         --root=$RPM_BUILD_ROOT --optimize=2
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/*.py
-install jack_*py[co] $RPM_BUILD_ROOT%{py_sitescriptdir}
 install jack $RPM_BUILD_ROOT%{_bindir}
 
 %clean
@@ -81,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/[!g]*
-%{py_sitescriptdir}/*.py[co]
+%{py_sitedir}/*.py[co]
 %attr(755,root,root) %{_bindir}/jack
 
 %files -n python-%{module}-cursesmodule
