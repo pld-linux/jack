@@ -2,20 +2,20 @@
 
 Summary:	Module for accessing CDDB and FreeDB
 Summary(pl):	Modu³ do ³±czenia z bazami CDDB i FreeDB
-Name:		%{module}
+Name:		jack
 Version:	3.0.0
 Release:	0.3
-License:	GNU
+License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
 # Source0-md5:	195c15a053c27f6a05fe0eda54bf9f35
 URL:		http://www.home.unix-ag.org/arne/jack/
-%pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	rpm-pythonprov
-Requires:	python-ID3
+%pyrequires_eq	python-modules
 Requires:	python-CDDB
-Requires:	python-jack-cursesmodule
+Requires:	python-ID3
+Requires:	python-jack-cursesmodule = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,14 +24,13 @@ main goal: making MP3s without having to worry.
 
 %description -l pl
 Jack jest programem do zgrywania p³yt audio do plików WAV, MP3 lub
-OGG, stworzony by¶ nie musia³ siê martwiæ o to, i¿ jakikolwiek b³±d
-przy zgrywaniu umknie Twojej uwadze.
+OGG, stworzony by nie trzeba by³o siê martwiæ o to, i¿ jakikolwiek
+b³±d przy zgrywaniu umknie naszej uwadze.
 
 %package -n python-%{module}-cursesmodule
 Summary:	An improved Python curses module used by jack (a Python ripping program)
-Summary(pl):	Ulepszona wersja modu³u curses dla Pythona wykorzystywana przez program jack.
+Summary(pl):	Ulepszona wersja modu³u curses dla Pythona wykorzystywana przez program jack
 Group:		Development/Languages/Python
-BuildRequires:	python-devel >= 2.2
 
 %description -n python-%{module}-cursesmodule
 Improved Python curses module used by jack (a Python ripping program).
@@ -77,10 +76,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*
+%doc doc/[!g]*
 %{py_sitescriptdir}/*.py[co]
 %attr(755,root,root) %{_bindir}/jack
 
 %files -n python-%{module}-cursesmodule
 %defattr(644,root,root,755)
-%{py_sitedir}/jack_cursesmodule.so
+%attr(755,root,root) %{py_sitedir}/jack_cursesmodule.so
