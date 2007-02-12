@@ -1,7 +1,7 @@
 %define         module jack
 
 Summary:	Module for accessing CDDB and FreeDB
-Summary(pl):	Modu³ do ³±czenia z bazami CDDB i FreeDB
+Summary(pl.UTF-8):   ModuÅ‚ do Å‚Ä…czenia z bazami CDDB i FreeDB
 Name:		jack
 Version:	3.1.1
 Release:	1
@@ -24,23 +24,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Jack is a python CDDA ripping program. It has been developed with one
 main goal: making MP3s without having to worry.
 
-%description -l pl
-Jack jest programem do zgrywania p³yt audio do plików WAV, MP3 lub
-OGG, stworzony by nie trzeba by³o siê martwiæ o to, i¿ jakikolwiek
-b³±d przy zgrywaniu umknie naszej uwadze.
+%description -l pl.UTF-8
+Jack jest programem do zgrywania pÅ‚yt audio do plikÃ³w WAV, MP3 lub
+OGG, stworzony by nie trzeba byÅ‚o siÄ™ martwiÄ‡ o to, iÅ¼ jakikolwiek
+bÅ‚Ä…d przy zgrywaniu umknie naszej uwadze.
 
 %package -n python-%{module}-cursesmodule
 Summary:	An improved Python curses module used by jack (a Python ripping program)
-Summary(pl):	Ulepszona wersja modu³u curses dla Pythona wykorzystywana przez program jack
+Summary(pl.UTF-8):   Ulepszona wersja moduÅ‚u curses dla Pythona wykorzystywana przez program jack
 Group:		Development/Languages/Python
 %pyrequires_eq	python-libs
 
 %description -n python-%{module}-cursesmodule
 Improved Python curses module used by jack (a Python ripping program).
 
-%description -n python-%{module}-cursesmodule -l pl
-Ulepszona wersja modu³u curses dla Pythona wykorzystywana przez jack -
-program do zgrywania p³yt Audio CD.
+%description -n python-%{module}-cursesmodule -l pl.UTF-8
+Ulepszona wersja moduÅ‚u curses dla Pythona wykorzystywana przez jack -
+program do zgrywania pÅ‚yt Audio CD.
 
 %prep
 %setup -q -n %{module}-%{version}
