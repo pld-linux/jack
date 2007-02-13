@@ -1,7 +1,7 @@
 %define         module jack
 
 Summary:	Module for accessing CDDB and FreeDB
-Summary(pl.UTF-8):   Moduł do łączenia z bazami CDDB i FreeDB
+Summary(pl.UTF-8):	Moduł do łączenia z bazami CDDB i FreeDB
 Name:		jack
 Version:	3.1.1
 Release:	1
@@ -31,7 +31,7 @@ błąd przy zgrywaniu umknie naszej uwadze.
 
 %package -n python-%{module}-cursesmodule
 Summary:	An improved Python curses module used by jack (a Python ripping program)
-Summary(pl.UTF-8):   Ulepszona wersja modułu curses dla Pythona wykorzystywana przez program jack
+Summary(pl.UTF-8):	Ulepszona wersja modułu curses dla Pythona wykorzystywana przez program jack
 Group:		Development/Languages/Python
 %pyrequires_eq	python-libs
 
