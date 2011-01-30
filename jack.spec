@@ -12,6 +12,8 @@ Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
 URL:		http://www.home.unix-ag.org/arne/jack/
 BuildRequires:	ncurses-devel
 BuildRequires:	python-devel >= 2.2
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.174
 %pyrequires_eq	python-modules
 Requires:	ncurses
