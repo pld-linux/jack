@@ -4,11 +4,12 @@ Summary:	Module for accessing CDDB and FreeDB
 Summary(pl.UTF-8):	Moduł do łączenia z bazami CDDB i FreeDB
 Name:		jack
 Version:	3.1.1
-Release:	5
+Release:	6
 License:	GPL
 Group:		Development/Languages/Python
 Source0:	http://www.home.unix-ag.org/arne/jack/%{module}-%{version}.tar.gz
 # Source0-md5:	8ec8971380ba009249d1bb3d1b3e7344
+Patch0:		%{name}-build.patch
 URL:		http://www.home.unix-ag.org/arne/jack/
 BuildRequires:	ncurses-devel
 BuildRequires:	python-devel >= 2.2
@@ -46,11 +47,12 @@ program do zgrywania płyt Audio CD.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags}"
 export CFLAGS
-python setup.py build
+%py_build
 
 #py_comp *.py
 #py_ocomp *.py
@@ -60,8 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{py_sitedir}
 install -d $RPM_BUILD_ROOT%{_bindir}
 
-python setup.py install \
-        --root=$RPM_BUILD_ROOT --optimize=2
+%py_install
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/*.py
 install jack $RPM_BUILD_ROOT%{_bindir}
@@ -78,3 +79,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -n python-%{module}-cursesmodule
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/jack_cursesmodule.so
+%{py_sitedir}/jack-*.egg-info

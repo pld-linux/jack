@@ -1,0 +1,14 @@
+--- jack-3.1.1/jack_functions.py~	2004-12-12 05:54:36.000000000 +0100
++++ jack-3.1.1/jack_functions.py	2015-12-12 21:43:27.274762217 +0100
+@@ -219,9 +219,9 @@ def blockstomsf(blocks):
+     ff = blocks % CDDA_BLOCKS_PER_SECOND
+     return mm, ss, ff, blocks
+ 
+-def starts_with(str, with):
++def starts_with(str, swith):
+     "checks whether str starts with with"
+-    return str[0:len(with)] == with
++    return str[0:len(swith)] == swith
+ 
+ ## #XXX the following will be used if all references to it have been updated.
+ ## meanwhile the wrapper below is used.
