@@ -47,7 +47,7 @@ program do zgrywania płyt Audio CD.
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 CFLAGS="%{rpmcflags}"
